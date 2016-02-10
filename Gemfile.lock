@@ -57,6 +57,8 @@ GEM
     compass-rails (2.0.0)
       compass (>= 0.12.2)
     debug_inspector (0.0.2)
+    erb2haml (0.1.5)
+      html2haml
     erubis (2.7.0)
     execjs (2.6.0)
     fssm (0.2.10)
@@ -179,6 +181,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   compass-rails (~> 2.0)
+  erb2haml
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
