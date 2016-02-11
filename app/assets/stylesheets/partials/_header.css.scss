@@ -1,0 +1,16 @@
+header{
+  background: $color-main;
+}
+.tabs-menu{
+  li{
+    list-style: none;
+    text-align: center;
+    display: block;
+    a{
+      display: block;
+      padding: 20px 0;
+      background: $color-background-body;
+      border-radius: 5px 5px 0 0;
+    }
+  }
+}

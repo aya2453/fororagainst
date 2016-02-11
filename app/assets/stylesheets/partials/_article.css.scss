@@ -1,0 +1,16 @@
+a{
+  line-height: 1.5rem;
+}
+
+.article-post{
+  margin-top: 20px;
+  .article-post-inner{
+    background: $white;
+    padding: 0 20px;
+    .article-intro{
+      line-height: 1.5rem;
+      color: $color-grey-light;
+      font-size: $font-size-s;
+    }
+  }
+}

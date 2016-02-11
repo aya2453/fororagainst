@@ -1,1 +1,14 @@
-%p 投稿一覧ページ表示
+.container
+  .row
+    - @articles.each do |article|
+      %article.article-post.col-md-6
+        .article-post-inner
+          .row
+            .article-thmubnail.col-xs-3
+              = link_to image_tag(article.thumbnail), 'http://www.google.com'
+            .article-intro.col-xs-9
+              %h2.article-title=link_to article.title, article_path(article.id)
+          .article-intro
+            %p
+              =truncate(article.content, length: 80) do
+                %span=link_to '続きを読む', article_path(article.id)

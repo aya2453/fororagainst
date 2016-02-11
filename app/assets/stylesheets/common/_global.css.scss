@@ -1,0 +1,56 @@
+@import "font-awesome";
+
+//Color
+$color-main:               #04A38B;
+$color-agree:              #3D598E;
+$color-disagree:           #F15B33;
+$color-background-body:    #F3F3F1;
+$color-grey-light:         #7f7f7f;
+$white:                    #FFF;
+$black:                    #222;
+
+//Typography
+$font-size-base:           14px;
+$font-size-s:              0.8rem;
+$font-size-big:            2rem;
+$font-size-medium:         1.3rem;
+
+//Common Style
+*{
+  box-sizing: border-box;
+}
+img{
+  max-width: 100%;
+}
+body{
+  background: $color-background-body;
+  color: $black;
+  font-size:$font-size-base;
+}
+ul{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+a{
+  color: $black;
+  -webkit-transition: .25s ease-in-out;
+     -moz-transition: .25s ease-in-out;
+      -ms-transition: .25s ease-in-out;
+       -o-transition: .25s ease-in-out;
+          transition: .25s ease-in-out;
+  &:hover{
+    color: $color-main;
+  }
+}
+h1{
+  font-size: $font-size-big;
+  color: $white;
+  margin: 0;
+}
+h2{
+  font-size: $font-size-medium;
+}
+
+.page-wrap{
+  background: $white;
+}
