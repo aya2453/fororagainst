@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  root 'articles#index'
+  root    'articles#index'
+  get     'articles/new'  =>  'articles#new'
+  post    'articles'      =>  'articles#create'
+  get     '/articles/:id' =>  'articles#show', as: 'article'
 end
