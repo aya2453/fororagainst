@@ -3,6 +3,13 @@
     - @articles.each do |article|
       %article.article-post.col-md-6
         .article-post-inner
+          #like-link
+            -if current_user.articlelikes.find_by(article_id: article.id)
+              = link_to 'いいねを取り消す',articleunlike_path(article.id), method: :delete
+              %span#like-count= article.likes_count
+            -else
+              = link_to 'いいね!', articlelike_path(article.id), method: :post
+              %span#like-count= article.likes_count
           .row
             .article-thmubnail.col-xs-3
               = link_to image_tag(article.thumbnail), 'http://www.google.com'

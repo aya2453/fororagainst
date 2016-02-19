@@ -1,3 +1,4 @@
 .container
-  %h2= @nickname
-  %p いいねした記事一覧
+  %h2= current_user.nickname
+  %p いいねした記事の数
+  =current_user.articlelikes.count

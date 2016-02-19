@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articlelikes = Articlelike.where(article_id: params[:id])
   end
 
   def new
