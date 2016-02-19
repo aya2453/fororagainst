@@ -1,13 +1,29 @@
 .container
-  %h1 For or Against
-  %nav.row.tabs-menu
-    %ul.col-md-8.col-md-offset-2.col-xs-12
-      .row
-        %li.col-xs-3
-          %a{:href => "#"} 人気順
-        %li.col-xs-3
-          %a{:href => "#"} 新着順
-        %li.col-xs-3
-          %a{:href => "#"} お気に入り
-        %li.col-xs-3
-          %a{:href => "#"} 検索
+  .header-top-wrap
+    %h1 For or Against
+    .menu-wrap 
+      %button 投稿する
+      .hamberger-menu-tigger
+        %span
+        %span
+        %span
+      %nav.nav-content
+        %ul
+          - if user_signed_in?
+            %li= link_to 'マイページ', user_show_path(current_user.id)
+            %li= link_to 'ログアウト', destroy_user_session_path, :method => :delete
+          - else
+            %li= link_to '新規登録', new_user_registration_path
+            %li= link_to 'ログイン', new_user_session_path
+
+    %nav.row.tabs-menu
+      %ul.col-md-8.col-md-offset-2.col-xs-12
+        .row
+          %li.col-xs-3
+            %a{:href => "#"} 人気順
+          %li.col-xs-3
+            %a{:href => "#"} 新着順
+          %li.col-xs-3
+            %a{:href => "#"} お気に入り
+          %li.col-xs-3
+            %a{:href => "#"} 検索

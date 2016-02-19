@@ -31,17 +31,6 @@ ul{
   margin-top: 0;
   margin-bottom: 0;
 }
-a{
-  color: $black;
-  -webkit-transition: .25s ease-in-out;
-     -moz-transition: .25s ease-in-out;
-      -ms-transition: .25s ease-in-out;
-       -o-transition: .25s ease-in-out;
-          transition: .25s ease-in-out;
-  &:hover{
-    color: $color-main;
-  }
-}
 h1{
   font-size: $font-size-big;
   color: $white;
