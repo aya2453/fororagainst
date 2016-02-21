@@ -2,7 +2,7 @@
   .row
     - @articles.each do |article|
       %article.article-post.col-md-6
-        .article-post-inner
+        .article-post-inner.effect2
           #like-link
             -if user_signed_in?
               -if current_user.articlelikes.find_by(article_id: article.id)

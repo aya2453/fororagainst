@@ -1,7 +1,10 @@
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 //Color
 $color-main:               #04A38B;
+$color-hover:              #04c8ab;
+$color-header-top:         #384F66;
 $color-agree:              #3D598E;
 $color-disagree:           #F15B33;
 $color-background-body:    #F3F3F1;
@@ -15,6 +18,9 @@ $font-size-s:              0.8rem;
 $font-size-big:            2rem;
 $font-size-medium:         1.3rem;
 
+//$font-family
+$font-family-global:      'Hiragino Kaku Gothic ProN','メイリオ', sans-serif;
+$font-family-h1:          'Lobster', cursive;
 //Common Style
 *{
   box-sizing: border-box;
@@ -26,6 +32,7 @@ body{
   background: $color-background-body;
   color: $black;
   font-size:$font-size-base;
+  font-family: $font-family-global;
 }
 ul{
   margin-top: 0;
@@ -33,7 +40,8 @@ ul{
 }
 h1{
   font-size: $font-size-big;
-  color: $white;
+  font-family: $font-family-h1;
+  color: $color-header-top;
   margin: 0;
 }
 h2{
