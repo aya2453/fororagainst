@@ -1,4 +1,24 @@
 .container
-  .page-wrap
+  %section
     %h2.detail-title=@article.title
     %p=@article.content
+  %section
+    %h3 コメント一覧
+    %h4 賛成コメント
+    -@article.comments.賛成.each do |comment|
+      .comment
+        =comment.body
+    %h4 反対コメント
+    -@article.comments.反対.each do |comment|
+      .comment
+        =comment.body
+  %section
+    %p
+      コメント投稿
+      =form_for([@article, @article.comments.build]) do |f|
+        -Comment.statuses.keys.each do |status|
+          =f.radio_button :status, status
+          = f.label status.to_sym
+        %br/
+        =f.text_area :body
+        =f.submit 'コメント送信'

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get     'users/:id'     =>  'users#show', as: 'user_show'
   post    'articlelike/:article_id' => 'articlelikes#create', as: 'articlelike'
   delete  'articleunlike/:article_id' => 'articlelikes#destroy', as: 'articleunlike'
+  resources :articles do
+    resources :comments
+  end
   resources :users, only: [] do
     member do
       get :articlelike_notes

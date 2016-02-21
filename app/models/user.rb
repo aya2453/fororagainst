@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   has_many :articlelikes
   has_many :articles
   has_many :articlelike_note, through: :articlelikes, source: :note
+  has_many :agrees
+  has_many :disagrees
 end
