@@ -39,9 +39,6 @@ ul{
   margin-bottom: 0;
 }
 h1{
-  font-size: $font-size-big;
-  font-family: $font-family-h1;
-  color: $color-header-top;
   margin: 0;
 }
 h2{
@@ -51,4 +48,11 @@ h2{
 section{
   background: $white;
   margin-bottom:20px;
+}
+
+.header-logo {
+  font-size: $font-size-big;
+  font-family: $font-family-h1;
+  color: $color-header-top;
+  text-decoration: none;
 }

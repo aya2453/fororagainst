@@ -2,10 +2,11 @@
 .container
   .header-top-wrap
     %h1
-      %i{:class => 'fa fa-thumbs-o-up fa-flip-horizontal icon-agree'}
-      For or Against
-      %i{:class => 'fa fa-thumbs-o-down icon-disagree'}
-    .menu-wrap 
+      %a{:href => root_path, :class => 'header-logo'}
+        %i{:class => 'fa fa-thumbs-o-up fa-flip-horizontal icon-agree'}
+        For or Against
+        %i{:class => 'fa fa-thumbs-o-down icon-disagree'}
+    .menu-wrap
       =link_to '投稿する', articles_new_path
       .hamberger-menu-tigger
         %span

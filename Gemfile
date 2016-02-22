@@ -10,6 +10,7 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'normalize-rails'
 gem 'devise'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'

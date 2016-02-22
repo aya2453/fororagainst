@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   delete  'articleunlike/:article_id' => 'articlelikes#destroy', as: 'articleunlike'
   resources :articles do
     resources :comments
+    member do
+      put 'pro' => 'articles#pro'
+      put 'con' => 'articles#con'
+    end
   end
   resources :users, only: [] do
     member do

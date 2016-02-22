@@ -11,6 +11,13 @@
               -else
                 = link_to 'いいね!', articlelike_path(article.id), method: :post
                 %span#like-count= article.likes_count
+
+          #pros
+            -if user_signed_in?
+              =link_to '賛成', pro_article_path(@article,id: article.id),method: :put
+              =article.get_upvotes.size
+              =link_to '反対', con_article_path(@article,id: article.id),method: :put
+              =article.get_downvotes.size
           .row
             .article-thmubnail.col-xs-3
               = link_to image_tag(article.thumbnail), 'http://www.google.com'

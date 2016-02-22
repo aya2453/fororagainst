@@ -17,6 +17,18 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def pro
+    @article = Article.find(params[:id])
+    @article.upvote_by current_user
+    redirect_to :back
+  end
+
+  def con
+    @article = Article.find(params[:id])
+    @article.downvote_by current_user
+    redirect_to :back
+  end
+
   private
     def article_params
       params.permit(:title, :thumbnail, :content)

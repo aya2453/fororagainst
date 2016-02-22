@@ -2,6 +2,13 @@
   %section
     %h2.detail-title=@article.title
     %p=@article.content
+
+  %section
+    =link_to '賛成', pro_article_path(@article,id: params[:id]),method: :put
+    =@article.get_upvotes.size
+    =link_to '反対', con_article_path(@article,id: params[:id]),method: :put
+    =@article.get_downvotes.size
+
   %section
     %h3 コメント一覧
     %h4 賛成コメント
