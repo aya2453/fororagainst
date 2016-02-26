@@ -15,8 +15,10 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'turbolinks'
 gem 'carrierwave'
+gem 'fog'
 gem 'rmagick'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -27,10 +29,14 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
-
-
   gem 'spring'
 end
+
+group :production, :staging do
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
 gem 'pry-rails'
 gem 'compass'
 gem 'compass-rails','~> 2.0'

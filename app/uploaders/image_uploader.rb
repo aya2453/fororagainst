@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
+  storage :fog
 
  # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick
