@@ -13,7 +13,7 @@ $white:                    #FFF;
 $black:                    #222;
 
 //Typography
-$font-size-base:           14px;
+$font-size-base:           16px;
 $font-size-s:              0.8rem;
 $font-size-big:            2rem;
 $font-size-medium:         1.3rem;
@@ -33,6 +33,7 @@ body{
   color: $black;
   font-size:$font-size-base;
   font-family: $font-family-global;
+  line-height: 1.8;
 }
 ul{
   margin-top: 0;
@@ -47,7 +48,14 @@ h2{
 
 section{
   background: $white;
-  margin-bottom:20px;
+  margin:20px 0;
+  padding: 15px;
+}
+
+.button{
+  display: inline-block;
+  color: $white;
+  text-decoration: none;
 }
 
 .header-logo {
@@ -55,4 +63,12 @@ section{
   font-family: $font-family-h1;
   color: $color-header-top;
   text-decoration: none;
+}
+
+.no-padding-right {
+  padding-right: 0 !important;
+}
+
+.no-padding-left {
+  padding-left: 0 !important;
 }

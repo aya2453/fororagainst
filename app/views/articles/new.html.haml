@@ -1,7 +1,7 @@
 .container
   %h2.articles-new-title トピックを投稿する
-  = form_tag '/articles', :method => :post do
-    %input{:type => "text", :placeholder => "サムネイル画像", :name => "thumbnail"}
-    %input{:type => "text", :placeholder => "タイトル", :name => "title"}
-    %textarea{:placeholder => "内容", :name => "content"}
-    %input{:type => "submit", :value => "投稿する"}
+  = simple_form_for @article do  |f|
+    =f.input :title
+    =f.input :thumbnail, as: :file
+    =f.input :content
+    =f.button :submit

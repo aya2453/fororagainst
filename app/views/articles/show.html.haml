@@ -4,10 +4,13 @@
     %p=@article.content
 
   %section
-    =link_to '賛成', pro_article_path(@article,id: params[:id]),method: :put
-    =@article.get_upvotes.size
-    =link_to '反対', con_article_path(@article,id: params[:id]),method: :put
-    =@article.get_downvotes.size
+    .detail-vote
+      =link_to pro_article_path(@article,id: params[:id]),:class => 'button button-agree button-detail-vote button-detail-agree', method: :put do
+        %i.fa.fa-thumbs-o-up
+        =@article.get_upvotes.size
+      =link_to con_article_path(@article,id: params[:id]),:class => 'button button-disagree button-detail-vote button-detail-disagree', method: :put do
+        %i.fa.fa-thumbs-o-down.fa-flip-horizontal
+        =@article.get_downvotes.size
 
   %section
     %h3 コメント一覧
@@ -20,12 +23,12 @@
       .comment
         =comment.body
   %section
-    %p
+    %h3
       コメント投稿
-      =form_for([@article, @article.comments.build]) do |f|
-        -Comment.statuses.keys.each do |status|
-          =f.radio_button :status, status
-          = f.label status.to_sym
-        %br/
-        =f.text_area :body
-        =f.submit 'コメント送信'
+    =form_for([@article, @article.comments.build]) do |f|
+      -Comment.statuses.keys.each do |status|
+        =f.radio_button :status, status
+        = f.label status.to_sym
+      %br/
+      =f.text_area :body
+      =f.submit 'コメント送信'

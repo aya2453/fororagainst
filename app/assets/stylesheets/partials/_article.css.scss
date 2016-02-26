@@ -1,16 +1,79 @@
-a{
-  line-height: 1.5rem;
+.article-title{
+  margin:0 40px 0 0;
+  a{
+    color:#484848;
+    &:hover{
+      color:$color-hover;
+    }
+  }
 }
+
 
 .article-post{
   margin-top: 20px;
   .article-post-inner{
     background: $white;
-    padding: 0 20px;
     .article-intro{
-      line-height: 1.5rem;
       color: $color-grey-light;
       font-size: $font-size-s;
     }
   }
+}
+
+.article-post-inner{
+  position: relative;
+}
+
+.article-in{
+  padding: 10px;
+}
+
+.article-likes{
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  span{
+    display: block;
+    text-align: center;
+    font-size: .7rem;
+  }
+}
+
+.article-content{
+  margin-left: 10px;
+}
+
+
+.button-vote{
+  width: 50%;
+  float: left;
+}
+
+.button-agree{
+  background: $color-agree;
+
+}
+
+.button-disagree{
+  background: $color-disagree;
+}
+
+
+.button-detail-vote{
+  width:30%;
+  padding: 15px 0 10px 0;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  i{
+    font-size: 2rem;
+  }
+}
+
+.button-detail-agree{
+  border-bottom: 10px solid #314872;
+}
+
+.button-detail-disagree{
+  border-bottom: 10px solid #D2390F;
 }

@@ -3,9 +3,9 @@
   .header-top-wrap
     %h1
       %a{:href => root_path, :class => 'header-logo'}
-        %i{:class => 'fa fa-thumbs-o-up fa-flip-horizontal icon-agree'}
+        %i{:class => 'fa fa-thumbs-o-up icon-agree'}
         For or Against
-        %i{:class => 'fa fa-thumbs-o-down icon-disagree'}
+        %i{:class => 'fa fa-thumbs-o-down fa-flip-horizontal icon-disagree'}
     .menu-wrap
       =link_to '投稿する', articles_new_path
       .hamberger-menu-tigger
@@ -25,19 +25,19 @@
   .container
     %ul.col-md-8.col-md-offset-2.col-xs-12
       .row
-        %li.active
-          %a{:href => "#"}
-            %i{:class => 'fa fa-line-chart tab-menu-icon'}
+        %li
+          = link_to root_path do
+            %i.fa.fa-line-chart.tab-menu-icon
             人気順
         %li
-          %a{:href => "#"}
-            %i{:class => 'fa fa-smile-o tab-menu-icon'}
+          = link_to root_path(:sort_param => 'created_at') do
+            %i.fa.fa-clock-o.tab-menu-icon
             新着順
         %li
           %a{:href => "#"}
             %i{:class => 'fa fa-heart tab-menu-icon'}
             お気に入り
         %li
-          %a{:href => "#"}
-            %i{:class => 'fa fa-search tab-menu-icon'}
+          = link_to articles_search_path do
+            %i.fa.fa-search.tab-menu-icon
             検索
