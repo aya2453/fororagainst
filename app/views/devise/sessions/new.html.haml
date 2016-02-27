@@ -1,17 +1,17 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.container
+  .row
+    .col-md-4.col-md-offset-4
+      .form-inner
+        %h2.form-title ログイン
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          %ul.form-wrap
+            %li
+              = f.input :email, placeholder: 'メールアドレス', label: false,autofocus: true, input_html: { class: 'form-control' }
+            %li
+              = f.input :password, placeholder: 'パスワード', label: false, autocomplete: "off", input_html: { class: 'form-control' }
+              - if devise_mapping.rememberable?
+                = f.check_box :remember_me
+                = f.label 'ログインを記憶する'
+            .actions
+              = f.submit 'ログインする', { class: 'button button-post' }
+            = render "devise/shared/links"
