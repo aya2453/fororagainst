@@ -58,6 +58,13 @@ section{
   padding: 15px;
 }
 
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+
 .button{
   display: inline-block;
   color: $white;
