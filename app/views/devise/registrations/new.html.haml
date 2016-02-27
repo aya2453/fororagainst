@@ -7,9 +7,9 @@
           = devise_error_messages!
           %ul.form-wrap
             %li
-              = f.input :nickname, placeholder: '名前', label: false, autofocus: true, maxlength: '6', input_html: { class: 'form-control' }
+              = f.input :nickname, placeholder: '名前', label: false, maxlength: '6', input_html: { class: 'form-control' }
             %li
-              = f.input :email, placeholder: 'メールアドレス', label: false,autofocus: true, input_html: { class: 'form-control' }
+              = f.input :email, placeholder: 'メールアドレス', label: false, input_html: { class: 'form-control' }
             %li
               = f.input :password, placeholder: 'パスワード(８文字以上)', label: false, autocomplete: "off", input_html: { class: 'form-control' }
             %li

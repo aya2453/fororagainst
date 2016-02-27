@@ -6,7 +6,7 @@
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           %ul.form-wrap
             %li
-              = f.input :email, placeholder: 'メールアドレス', label: false,autofocus: true, input_html: { class: 'form-control' }
+              = f.input :email, placeholder: 'メールアドレス', label: false, input_html: { class: 'form-control' }
             %li
               = f.input :password, placeholder: 'パスワード', label: false, autocomplete: "off", input_html: { class: 'form-control' }
               - if devise_mapping.rememberable?

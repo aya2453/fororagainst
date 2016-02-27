@@ -1,8 +1,8 @@
 .container
   %h2.articles-new-title 記事を検索する
   = form_tag '/articles/search', :method => :get do
-    %input{:type => "text", :placeholder => "検索したい記事", :name => "keyword"}
-    %input{:type => "submit", :value => "検索する"}
+    %input{:type => "text", :placeholder => "検索したい記事", :name => "keyword", :class => 'form-control-s'}
+    %input{:type => "submit", :value => "検索する", :class => 'button button-post button-s'}
 
 .container
   .row

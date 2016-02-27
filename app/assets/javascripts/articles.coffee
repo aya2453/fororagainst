@@ -24,7 +24,7 @@ $ ->
 
   $('.overlay').click ->
     $(@).fadeOut()
-    $navContent.removeClass 'is-hamberger-active'
+    $navContent.removeClass('is-hamberger-active')
 
   #固定ヘッダーが自分の高さ分スクロールしたら影を付与
   $w.scroll ->

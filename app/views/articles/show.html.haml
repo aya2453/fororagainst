@@ -14,14 +14,22 @@
 
   %section
     %h3 コメント一覧
-    %h4 賛成コメント
-    -@article.comments.賛成.each do |comment|
-      .comment
-        =comment.body
-    %h4 反対コメント
-    -@article.comments.反対.each do |comment|
-      .comment
-        =comment.body
+    .tab-titles.row
+      .col-xs-6.tab-agree
+        %h4 賛成コメント
+      .col-xs-6.tab-disagree
+        %h4 反対コメント
+    .tab-contents.row
+      .col-xs-12.col-md-6.tab-comment-agree
+        %ul.comment
+          -@article.comments.賛成.each do |comment|
+            %li
+              =comment.body
+      .col-xs-12.col-md-6.tab-comment-disagree
+        %ul.comment
+          -@article.comments.反対.each do |comment|
+            %li
+              =comment.body
   %section
     %h3
       コメント投稿
@@ -31,4 +39,5 @@
         = f.label status.to_sym
       %br/
       =f.text_area :body
-      =f.submit 'コメント送信'
+      .field
+        =f.submit 'コメント送信', :class => 'button button-post'

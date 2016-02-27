@@ -8,3 +8,13 @@
     display: none;
   }
 }
+
+@media (max-width: 991px){
+  .tab-comment-disagree{
+  display: none;
+  }
+  .button-detail-vote{
+    width: 49% !important;
+  }
+}
+

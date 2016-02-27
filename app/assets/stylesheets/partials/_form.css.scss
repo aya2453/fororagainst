@@ -1,4 +1,4 @@
-input,button,textarea,select{
+.form-wrap input,button,textarea,select{
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -31,10 +31,25 @@ input[type="text"], input[type="email"],input[type="password"],textarea, select 
   }
 }
 
+.text-area{
+  resize: vertical;
+  width: 100%;
+}
+
 .form-control{
   width: 100%;
   padding: 10px;
   background: #DFDFDF;
+}
+
+.form-control-s{
+  width: 150px;
+  padding: 10px;
+  background: #DFDFDF;
+}
+
+.button-s{
+  padding: 8px 10px !important;
 }
 
 .form-inner{
@@ -42,7 +57,8 @@ input[type="text"], input[type="email"],input[type="password"],textarea, select 
   padding-bottom: 20px;
 }
 
-.new_user{
+.new_user,
+.new_article{
   padding: 0 20px;
 }
 
