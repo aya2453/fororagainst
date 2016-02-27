@@ -10,9 +10,9 @@ CarrierWave.configure do |config|
     case Rails.env
     when 'development'
         config.fog_directory  = 'fororagainst'
-        config.asset_host = 'https://s3.amazonaws.com/for-or-against'
+        config.asset_host = 'https://s3.amazonaws.com/fororagainst'
     when 'production'
         config.fog_directory  = 'fororaginst'
-        config.asset_host = 'https://s3.amazonaws.com/for-or-against'
+        config.asset_host = 'https://s3.amazonaws.com/fororagainst'
     end
 end
