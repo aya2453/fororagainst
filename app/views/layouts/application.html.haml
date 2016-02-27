@@ -2,13 +2,35 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width,user-scalable=0", :name => "viewport"}/
     %title Fororagainst
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %header
+    %header.header
       = render partial: 'common/header'
-    = yield
-    %footer
-      = render partial: 'common/footer'
+    #contents
+      .tabs-menu
+        .container
+          %ul.col-md-8.col-md-offset-2.col-xs-12
+            %nav.global-nav.row
+              %li
+                = link_to root_path do
+                  %i.fa.fa-line-chart.tab-menu-icon
+                  人気順
+              %li
+                = link_to root_path(:sort_param => 'created_at') do
+                  %i.fa.fa-clock-o.tab-menu-icon
+                  新着順
+              %li
+                %a{:href => "#"}
+                  %i{:class => 'fa fa-heart tab-menu-icon'}
+                  お気に入り
+              %li
+                = link_to articles_search_path do
+                  %i.fa.fa-search.tab-menu-icon
+                  検索
+      = yield
+      %footer
+        = render partial: 'common/footer'

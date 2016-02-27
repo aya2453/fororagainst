@@ -77,3 +77,18 @@
 .button-detail-disagree{
   border-bottom: 10px solid #D2390F;
 }
+
+.button-post{
+  padding: 5px 20px;
+  border-radius: 5px;
+  border-bottom: 5px solid #036355;
+  background: $color-main;
+  &:hover{
+    background: $color-hover;
+    border-bottom: 5px solid $color-main;
+  }
+}
+
+.mg-r-55{
+  margin-right: 55px;
+}

@@ -1,5 +1,12 @@
-header{
+#contents{
+  padding-top:77px;
+}
+
+.header{
+  position: fixed;
   background: $color-background-body;
+  width: 100%;
+  z-index: 9999;
 }
 
 .header-top-wrap{
@@ -12,21 +19,71 @@ header{
 }
 
 .menu-wrap{
-  display: inline-block;
   position: absolute;
   right: 0;
-  button,.hamberger-menu{
-    display: inline-block;
+  top: 0;
+  margin-top: 8px;
+}
+
+.nav-content{
+  top: 77px;
+  position: absolute;
+  right: -230px;
+  width: 230px;
+  background: $color-background-body;
+  z-index: 888;
+  -webkit-transition: all .3s linear 0s;
+  transition: all .3s linear 0s;
+  ul{
+    border-top: 1px dotted $color-grey-light;
+    li {
+      border-bottom: 1px dotted $color-grey-light;
+      list-style: none;
+      a{
+        color: $black;
+        display: block;
+        padding: 10px 0 10px 10px;
+        text-decoration: none;
+        background: $color-background-body;
+        -webkit-transition: all .15s linear;
+           -moz-transition: all .15s linear;
+            -ms-transition: all .15s linear;
+             -o-transition: all .15s linear;
+                transition: all .15s linear;
+        &:hover{
+          background: $white;
+        }
+      }
+    }
   }
 }
 
+
+.is-hamberger-active{
+  right: 0;
+  position: fixed;
+}
+
+.overlay{
+  position: fixed;
+  background: $black;
+  display: none;
+  opacity: .6;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
+
 .hamberger-menu-tigger{
-  position: relative;
+  position: absolute;
+  right: 0;
+  top: 0;
   border: 2px solid $color-header-top;
   border-radius: 4px;
   width: 44px;
   height: 44px;
-  display: inline-block;
+  cursor: pointer;
     span{
       position: absolute;
       height: 3px;
