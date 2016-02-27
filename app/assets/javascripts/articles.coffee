@@ -11,7 +11,6 @@ $ ->
 
   $w = $(window)
   $windowH = $w.height()
-  $windowW = $w.width()
   $headerH = $('header').height()
   $navContent = $('.nav-content')
   $contents = $('#contents')
@@ -33,7 +32,3 @@ $ ->
       $('header').addClass('box-shadow')
     else
       $('header').removeClass('box-shadow')
-
-  #画面サイズが445px以下だったら投稿ボタン削除
-    if $windowW < 445
-      $('.menu-wrap > a').addClass('hidden')

@@ -2,3 +2,9 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 @import 'bootstrap/grid';
+
+@media (max-width: 445px) {
+  .menu-wrap > a {
+    display: none;
+  }
+}
