@@ -10,8 +10,7 @@ $ ->
     $('.tabs-menu a[href="'+urlPath+'"]').addClass('is-menu-active')
 
 
-  windowH = $(window).width()
-  windowW= $(window).height()
+  windowH = $(window).height()
   headerH = $('header').height()
   navContent = $('.nav-content')
   contents = $('#contents')
