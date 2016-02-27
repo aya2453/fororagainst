@@ -38,7 +38,13 @@ body{
 ul{
   margin-top: 0;
   margin-bottom: 0;
+  padding: 0;
 }
+
+li{
+  list-style: none;
+}
+
 h1{
   margin: 0;
 }
@@ -71,4 +77,8 @@ section{
 
 .no-padding-left {
   padding-left: 0 !important;
+}
+
+.box-shadow{
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }

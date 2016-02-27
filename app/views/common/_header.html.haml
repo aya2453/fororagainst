@@ -2,42 +2,21 @@
 .container
   .header-top-wrap
     %h1
-      %a{:href => root_path, :class => 'header-logo'}
-        %i{:class => 'fa fa-thumbs-o-up icon-agree'}
+      =link_to root_path, :class => 'header-logo' do
+        %i.fa.fa-thumbs-o-up.icon-agree
         For or Against
-        %i{:class => 'fa fa-thumbs-o-down fa-flip-horizontal icon-disagree'}
+        %i.fa.fa-thumbs-o-down.fa-flip-horizontal.icon-disagree
     .menu-wrap
-      =link_to '投稿する', articles_new_path
+      =link_to '投稿する', articles_new_path, :class => 'button button-green button-post mg-r-55'
       .hamberger-menu-tigger
         %span
         %span
         %span
-      %nav.nav-content
-        %ul
-          - if user_signed_in?
-            %li= link_to 'マイページ', user_show_path(current_user.id)
-            %li= link_to 'ログアウト', destroy_user_session_path, :method => :delete
-          - else
-            %li= link_to '新規登録', new_user_registration_path
-            %li= link_to 'ログイン', new_user_session_path
-
-%nav.tabs-menu
-  .container
-    %ul.col-md-8.col-md-offset-2.col-xs-12
-      .row
-        %li
-          = link_to root_path do
-            %i.fa.fa-line-chart.tab-menu-icon
-            人気順
-        %li
-          = link_to root_path(:sort_param => 'created_at') do
-            %i.fa.fa-clock-o.tab-menu-icon
-            新着順
-        %li
-          %a{:href => "#"}
-            %i{:class => 'fa fa-heart tab-menu-icon'}
-            お気に入り
-        %li
-          = link_to articles_search_path do
-            %i.fa.fa-search.tab-menu-icon
-            検索
+%nav.nav-content
+  %ul
+    - if user_signed_in?
+      %li= link_to 'マイページ', user_show_path(current_user.id)
+      %li= link_to 'ログアウト', destroy_user_session_path, :method => :delete
+    - else
+      %li= link_to '新規登録', new_user_registration_path
+      %li= link_to 'ログイン', new_user_session_path
