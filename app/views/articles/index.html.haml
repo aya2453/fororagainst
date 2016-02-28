@@ -6,7 +6,7 @@
           .article-in
             .row
               .col-xs-3.no-padding-right
-                = link_to image_tag(article.thumbnail), 'http://www.google.com'
+                = link_to image_tag(article.thumbnail), article_path(article.id)
               .col-xs-9.no-padding-left
                 .article-content
                   %h2.article-title=link_to article.title, article_path(article.id)
