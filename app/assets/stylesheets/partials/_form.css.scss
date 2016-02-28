@@ -58,7 +58,9 @@ input[type="text"], input[type="email"],input[type="password"],textarea, select 
 }
 
 .new_user,
-.new_article{
+.new_article,
+.edit_article,
+.edit_user{
   padding: 0 20px;
 }
 

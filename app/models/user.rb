@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articlelikes
   has_many :articles
-  has_many :articlelike_note, through: :articlelikes, source: :note
+  has_many :user_articlelikes, through: :articlelikes, source: :article
 end

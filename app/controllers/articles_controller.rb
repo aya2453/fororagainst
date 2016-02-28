@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :set_article, only: [:show, :edit, :pro, :con]
+  before_action :set_article, only: [:show, :edit, :pro, :con,:destroy,:update]
 
   def index
     params[:sort_param] = %w{likes_count created_at}.include?(params[:sort_param]) ? params[:sort_param] : 'likes_count'
@@ -23,6 +23,19 @@ class ArticlesController < ApplicationController
   def edit
   end
 
+  def destroy
+    if @article.user_id == current_user.id
+      @article.destroy
+    end
+    redirect_to :back
+  end
+
+  def update
+    if @article.user_id == current_user.id
+      @article.update(article_params)
+    end
+  end
+
   def pro
     @article.upvote_by current_user
     redirect_to :back
@@ -39,7 +52,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :thumbnail, :content)
+      params.require(:article).permit(:title, :thumbnail, :content,:user_id)
     end
 
     def set_article

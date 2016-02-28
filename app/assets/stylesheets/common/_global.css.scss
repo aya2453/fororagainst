@@ -28,6 +28,34 @@ $font-family-h1:          'Lobster', cursive;
 img{
   max-width: 100%;
 }
+
+.img-circle{
+  border-radius: 50%;
+}
+
+.text-center{
+  text-align: center
+}
+
+.border-circle{
+  border: 5px solid $color-main;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+ 
+.cf:after {
+  clear: both;
+}
+ 
+/* For IE 6/7 only */
+.cf {
+  *zoom: 1;
+}
+
 body{
   background: $color-background-body;
   color: $black;
@@ -89,3 +117,4 @@ section{
 .box-shadow{
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+

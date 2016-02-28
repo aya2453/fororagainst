@@ -1,2 +1,1 @@
-$('#like-link').html('いいね！しました')
-$('#like-count').html('<%= @article.likes_count %>')
+$("#like-button").html("<%= j(render partial: 'articlelike', locals: { article: @article, articlelikes: @articlelikes, articlelike: @articlelike}) %>")

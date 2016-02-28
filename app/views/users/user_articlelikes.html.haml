@@ -1,0 +1,47 @@
+.container
+  .row
+    -if @articlelikes.present?
+      - @articlelikes.each do |article|
+        %article.article-post.col-md-6
+          .article-post-inner
+            .article-in
+              .row
+                .col-xs-3.no-padding-right
+                  = link_to image_tag(article.thumbnail), 'http://www.google.com'
+                .col-xs-9.no-padding-left
+                  .article-content
+                    %h2.article-title=link_to article.title, article_path(article.id)
+                    .article-intro
+                      %p
+                        =truncate(article.content, length: 80) do
+                          %span=link_to '続きを読む', article_path(article.id)
+            .article-vote.cf
+              -if user_signed_in?
+                =link_to pro_article_path(@article,id: article.id),method: :put, :class => 'button button-vote button-agree' do
+                  賛成
+                  =article.get_upvotes.size
+
+                =link_to con_article_path(@article,id: article.id),method: :put, :class => 'button button-vote button-disagree' do
+                  反対
+                  =article.get_downvotes.size
+
+
+            .article-likes
+              -if user_signed_in?
+                -if current_user.articlelikes.find_by(article_id: article.id)
+                  = link_to articleunlike_path(article.id), method: :delete do
+                    %i.fa.fa-heart.icon-fav-on
+                  %span
+                    =article.likes_count
+                -else
+                  = link_to articlelike_path(article.id), method: :post do
+                    %i.fa.fa-heart.icon-fav-off
+                  %span
+                    =article.likes_count
+              -else
+                = link_to new_user_session_path do
+                  %i.fa.fa-heart.icon-fav-off
+                %span
+                  =article.likes_count
+    -else
+      あなたがいいねしている記事はありません。

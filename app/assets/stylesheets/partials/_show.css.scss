@@ -28,3 +28,21 @@
 
 .tab-comment-disagree{
 }
+
+.list-dotted{
+  border-top: 1px dotted $black;
+  li{
+    border-bottom: 1px dotted $black;
+    padding: 10px 0;
+  }
+}
+
+.edit-delete{
+  a{
+    color: $black;
+    font-size: .9em;
+    &:hover{
+      color: $color-hover;
+    }
+  }
+}

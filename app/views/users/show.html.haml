@@ -1,4 +1,42 @@
 .container
-  %h2= current_user.nickname
-  %p いいねした記事の数
-  =current_user.articlelikes.count
+  .row
+    .col-md-4
+      %section
+        .text-center
+          = image_tag("https://placehold.jp/180x180.png", alt: "", :class => 'img-circle border-circle')
+          %h2= current_user.nickname
+          =link_to '編集する', edit_user_registration_path(current_user.id), :class => 'button button-post'
+
+    .col-md-8
+      %section
+        %h2 あなたがいいねした記事
+        -if @articlelikes.present?
+          %ul.list-dotted
+            - @articlelikes.each do |articlelike|
+              %li
+                .row
+                  .col-xs-3
+                    =image_tag(articlelike.thumbnail)
+                  .col-xs-9
+                    %h4.article-title
+                      =link_to articlelike.title, article_path(articlelike.id)
+        -else
+          あなたがいいねしている記事はありません。
+        %h2 あなたが投稿した記事
+        -if @articles.present?
+          %ul.list-dotted
+            - @articles.each do |article|
+              %li
+                .row
+                  .col-xs-3
+                    =image_tag(article.thumbnail)
+                  .col-xs-9
+                    %h4.article-title
+                      =link_to article.title, article_path(article.id)
+                    .edit-delete
+                      %i.fa.fa-trash-o
+                      =link_to '記事の削除', article_path(article), method: :delete, data: { confirm: ' 本当にこの記事を削除してもよろしいですか？' }
+                      %i.fa.fa-pencil-square-o
+                      =link_to '記事の編集', edit_article_path(article)
+        -else
+          あなたが投稿した記事はありません。

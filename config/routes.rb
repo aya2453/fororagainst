@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [] do
     member do
-      get :articlelike_notes
+      get :user_articlelikes
     end
   end
 end

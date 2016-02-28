@@ -24,9 +24,14 @@
                   %i.fa.fa-clock-o.tab-menu-icon
                   新着順
               %li
-                %a{:href => "#"}
-                  %i{:class => 'fa fa-heart tab-menu-icon'}
-                  お気に入り
+                -if user_signed_in?
+                  = link_to user_articlelikes_user_path(current_user.id) do
+                    %i.fa.fa-heart.tab-menu-icon
+                    お気に入り
+                -else
+                  = link_to new_user_session_path do
+                    %i.fa.fa-heart.tab-menu-icon
+                    お気に入り
               %li
                 = link_to articles_search_path do
                   %i.fa.fa-search.tab-menu-icon

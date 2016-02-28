@@ -1,0 +1,17 @@
+.article-likes
+  -if user_signed_in?
+    -if current_user.articlelikes.find_by(article_id: article.id)
+      = link_to articleunlike_path(article.id), method: :delete do
+        %i.fa.fa-heart.icon-fav-on
+      %span
+        =article.likes_count
+    -else
+      = link_to articlelike_path(article.id), method: :post do
+        %i.fa.fa-heart.icon-fav-off
+      %span
+        =article.likes_count
+  -else
+    = link_to new_user_session_path do
+      %i.fa.fa-heart.icon-fav-off
+    %span
+      =article.likes_count
