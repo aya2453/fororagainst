@@ -12,7 +12,7 @@ CarrierWave.configure do |config|
         config.fog_directory  = 'fororagainst'
         config.asset_host = 'https://s3.amazonaws.com/fororagainst'
     when 'production'
-        config.fog_directory  = 'fororaginst'
+        config.fog_directory  = 'fororagainst'
         config.asset_host = 'https://s3.amazonaws.com/fororagainst'
     end
 end
