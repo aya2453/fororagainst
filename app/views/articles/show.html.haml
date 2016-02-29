@@ -5,12 +5,20 @@
 
   %section
     .detail-vote
-      =link_to pro_article_path(@article,id: params[:id]),:class => 'button button-agree button-detail-vote button-detail-agree', method: :put do
-        %i.fa.fa-thumbs-o-up
-        =@article.get_upvotes.size
-      =link_to con_article_path(@article,id: params[:id]),:class => 'button button-disagree button-detail-vote button-detail-disagree', method: :put do
-        %i.fa.fa-thumbs-o-down.fa-flip-horizontal
-        =@article.get_downvotes.size
+      -if user_signed_in?
+        =link_to pro_article_path(@article,id: params[:id]),:class => 'button button-agree button-detail-vote button-detail-agree', method: :put do
+          %i.fa.fa-thumbs-o-up
+          =@article.get_upvotes.size
+        =link_to con_article_path(@article,id: params[:id]),:class => 'button button-disagree button-detail-vote button-detail-disagree', method: :put do
+          %i.fa.fa-thumbs-o-down.fa-flip-horizontal
+          =@article.get_downvotes.size
+      -else
+        =link_to new_user_session_path,:class => 'button button-agree button-detail-vote button-detail-agree' do
+          %i.fa.fa-thumbs-o-up
+          =@article.get_upvotes.size
+        =link_to new_user_session_path,:class => 'button button-disagree button-detail-vote button-detail-disagree' do
+          %i.fa.fa-thumbs-o-down.fa-flip-horizontal
+          =@article.get_downvotes.size
 
   %section
     %h3 コメント一覧
@@ -19,13 +27,12 @@
         %h4 賛成コメント
       .col-xs-6.tab-disagree
         %h4 反対コメント
-    .tab-contents.row
-      .col-xs-12.col-md-6.tab-comment-agree
+      .col-xs-6
         %ul.comment
           -@article.comments.賛成.each do |comment|
             %li
               =comment.body
-      .col-xs-12.col-md-6.tab-comment-disagree
+      .col-xs-6
         %ul.comment
           -@article.comments.反対.each do |comment|
             %li

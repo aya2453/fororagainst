@@ -23,6 +23,14 @@
               =link_to con_article_path(@article,id: article.id),method: :put, :class => 'button button-vote button-disagree' do
                 反対
                 =article.get_downvotes.size
+            -else
+              =link_to new_user_session_path, :class => 'button button-vote button-agree' do
+                賛成
+                =article.get_upvotes.size
+
+              =link_to new_user_session_path, :class => 'button button-vote button-disagree' do
+                反対
+                =article.get_downvotes.size
 
 
           .article-likes
