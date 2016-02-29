@@ -40,6 +40,12 @@
   }
 }
 
+.article-intro a{
+  color: $black;
+  &:hover{
+    color: $color-hover;
+  }
+}
 .article-content{
   margin-left: 10px;
 }

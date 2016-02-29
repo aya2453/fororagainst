@@ -2,34 +2,21 @@
   .row
     .col-md-4.col-md-offset-4
       .form-inner
-        %h2
-          Edit #{resource_name.to_s.humanize}
-        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        %h2.form-title プロフィール編集
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
           = devise_error_messages!
-          .field
-            = f.label :email
-            %br/
-            = f.email_field :email, autofocus: true
-          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-            %div
-              Currently waiting confirmation for: #{resource.unconfirmed_email}
-          .field
-            = f.label :password
-            %i (leave blank if you don't want to change it)
-            %br/
-            = f.password_field :password, autocomplete: "off"
-          .field
-            = f.label :password_confirmation
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "off"
-          .field
-            = f.label :current_password
-            %i (we need your current password to confirm your changes)
-            %br/
-            = f.password_field :current_password, autocomplete: "off"
-          .actions
-            = f.submit "Update"
-        %h3 Cancel my account
-        %p
-          Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-        = link_to "Back", :back
+          %ul.form-wrap
+            %li
+              = f.input :nickname, placeholder: '名前', label: '名前', maxlength: '6', input_html: { class: 'form-control' }
+            %li
+              = f.input :email, placeholder: 'メールアドレス', label: 'メールアドレス', input_html: { class: 'form-control' }
+            %li
+              = f.input :avatar, as: :file, input_html: { class: 'form-control' },label: 'サムネイル画像'
+            %li
+              = f.input :password, placeholder: '変更後のパスワード', label: '変更後のパスワード', autocomplete: "off", input_html: { class: 'form-control' }
+            %li
+              = f.input :password_confirmation, placeholder: '変更後のパスワード', label: '変更後のパスワード再入力', autocomplete: "off", input_html: { class: 'form-control' }
+            %li
+              = f.input :current_password, placeholder: '編集を完了するための現在のパスワード（必須）', label: '編集を完了するための現在のパスワード（必須）', autocomplete: "off", input_html: { class: 'form-control' }
+            .actions
+              = f.submit '編集する', { class: 'button button-post' }
