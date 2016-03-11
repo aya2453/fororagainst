@@ -32,3 +32,55 @@ $ ->
       $('header').addClass('box-shadow')
     else
       $('header').removeClass('box-shadow')
+
+
+  class FavArticle
+    constructor: ($el) ->
+      @$el = $($el)
+      @$likesButton = @$el.find('.js-likes-button')
+      @$likesCount = @$el.find('.js-likes-count')
+      @setEventListener()
+
+    setEventListener: ->
+      @$likesButton.on 'click', (e) =>
+        e.preventDefault()
+        @_setLikesAjax(e)
+
+    _setLikesAjax: (e)->
+      $this = $(e.currentTarget)
+      $article_id = $this.closest('a').data('id')
+      $unLikeURL = '/articleunlike/' + $article_id
+      $likeURL = '/articlelike/' + $article_id
+      if $this.hasClass('icon-fav-off')
+        $.ajax({
+          url: $likeURL
+          type: 'POST'
+          cache: false
+          data: {
+            'article_id': $article_id
+          }
+          datatype: 'json'
+        })
+        .done (data) =>
+          $this.removeClass('icon-fav-off').addClass('icon-fav-on')
+          $this.closest('a').attr('href', $unLikeURL)
+          @$likesCount.text(data[0].likes_count)
+      else
+        $.ajax({
+          url: $unLikeURL
+          type: 'DELETE'
+          cache: false
+          data: {
+            'article_id': $article_id
+          }
+          datatype: 'json'
+        })
+        .done (data) =>
+          $this.removeClass('icon-fav-on').addClass('icon-fav-off')
+          $this.closest('a').attr('href', $likeURL)
+          @$likesCount.text(data[0].likes_count)
+
+
+    favButtons = document.querySelectorAll('.js-article-likes')
+    for favButton in favButtons
+      new FavArticle(favButton)
