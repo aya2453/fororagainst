@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
   def index
     params[:sort_param] = %w{likes_count created_at}.include?(params[:sort_param]) ? params[:sort_param] : 'likes_count'
     @articles = Article.all.order "#{params[:sort_param]} DESC"
-    @articlelikes = Articlelike.where(article_id: params[:id])
   end
 
   def new
